@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gizlilik Politikası — StoryUp</title>
+<style>
+  :root {
+    --ink: #16181D;
+    --ink-muted: #6B7280;
+    --ink-faint: #9CA3AF;
+    --indigo: #6366F1;
+    --indigo-tint: #EEF0FE;
+    --border: #E7E5E4;
+    --bg: #FFFFFF;
+    --surface: #FAFAF9;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 28px 24px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .brand svg { flex-shrink: 0; }
+  .brand span {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+  }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+  }
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--indigo);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 12px;
+  }
+  h1 {
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: -0.6px;
+    margin: 0 0 8px;
+  }
+  .updated {
+    color: var(--ink-muted);
+    font-size: 14px;
+    margin: 0 0 40px;
+  }
+  .intro {
+    font-size: 16px;
+    color: var(--ink-muted);
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+  }
+  nav.toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 48px;
+  }
+  nav.toc p {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 0 0 12px;
+  }
+  nav.toc ol {
+    margin: 0;
+    padding: 0 0 0 20px;
+    columns: 2;
+    column-gap: 24px;
+  }
+  nav.toc li { margin-bottom: 8px; break-inside: avoid; }
+  nav.toc a {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 14px;
+  }
+  nav.toc a:hover { color: var(--indigo); }
+  section {
+    margin-bottom: 40px;
+    scroll-margin-top: 24px;
+  }
+  section h2 {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin: 0 0 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  section h2 .num {
+    color: var(--indigo);
+    font-variant-numeric: tabular-nums;
+    font-size: 15px;
+    font-weight: 700;
+  }
+  section p, section li {
+    font-size: 15.5px;
+    color: #33363D;
+  }
+  section ul { padding-left: 20px; margin: 12px 0; }
+  section li { margin-bottom: 8px; }
+  .service-list {
+    display: grid;
+    gap: 10px;
+    margin: 16px 0;
+  }
+  .service-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .service-item strong { display: block; font-size: 14.5px; margin-bottom: 2px; }
+  .service-item span { font-size: 14px; color: var(--ink-muted); }
+  .note {
+    background: var(--indigo-tint);
+    border-radius: 10px;
+    padding: 16px 18px;
+    font-size: 14.5px;
+    color: #3A3D8F;
+  }
+  a.email { color: var(--indigo); font-weight: 600; text-decoration: none; }
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 24px 48px;
+    text-align: center;
+  }
+  footer p { font-size: 13px; color: var(--ink-faint); margin: 0; }
+  footer a { color: var(--ink-muted); text-decoration: none; margin: 0 8px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 12H5L7 5L10 19L13 9L15 16L17 12H22" stroke="#6366F1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span>StoryUp</span>
+  </div>
+</header>
+
+<main>
+  <p class="eyebrow">Yasal</p>
+  <h1>Gizlilik Politikası</h1>
+  <p class="updated">Son güncelleme: 7 Temmuz 2026</p>
+
+  <p class="intro">
+    StoryUp olarak gizliliğine önem veriyoruz. Bu sayfa, uygulamayı kullanırken
+    hangi bilgileri topladığımızı, bunları neden topladığımızı ve
+    haklarının neler olduğunu açık bir dille anlatır.
+  </p>
+
+  <nav class="toc" aria-label="İçindekiler">
+    <p>İçindekiler</p>
+    <ol>
+      <li><a href="#toplanan-bilgiler">Topladığımız Bilgiler</a></li>
+      <li><a href="#kullanim-amaci">Bilgilerini Nasıl Kullanıyoruz</a></li>
+      <li><a href="#paylasim">Kimlerle Paylaşıyoruz</a></li>
+      <li><a href="#saklama">Veri Saklama Süresi</a></li>
+      <li><a href="#haklar">Hakların</a></li>
+      <li><a href="#cocuklar">Çocukların Gizliliği</a></li>
+      <li><a href="#guvenlik">Güvenlik</a></li>
+      <li><a href="#degisiklikler">Politika Değişiklikleri</a></li>
+      <li><a href="#iletisim">İletişim</a></li>
+    </ol>
+  </nav>
+
+  <section id="toplanan-bilgiler">
+    <h2><span class="num">01</span> Topladığımız Bilgiler</h2>
+    <p>Hesabını oluşturduğunda ve uygulamayı kullandığında aşağıdaki bilgileri topluyoruz:</p>
+    <ul>
+      <li><strong>Hesap bilgileri:</strong> e-posta adresin, görünen adın.</li>
+      <li><strong>Öğrenme tercihlerin:</strong> seçtiğin seviye (Başlangıç/Orta), günlük hedefin, İngilizce öğrenme motivasyonun, StoryUp'ı nereden duyduğun.</li>
+      <li><strong>Kullanım verileri:</strong> izlediğin hikâyeler, kaydettiğin kelimeler, pratik ve tekrar sonuçların, günlük seri (streak) bilgin.</li>
+      <li><strong>Abonelik durumu:</strong> Premium üyeliğinin aktif olup olmadığı. Kart bilgilerini StoryUp görmez ve saklamaz — bu bilgiler doğrudan Apple/Google tarafından işlenir.</li>
+      <li><strong>Teknik veriler:</strong> uygulama sürümü, cihaz türü, çökme/hata kayıtları.</li>
+    </ul>
+  </section>
+
+  <section id="kullanim-amaci">
+    <h2><span class="num">02</span> Bilgilerini Nasıl Kullanıyoruz</h2>
+    <ul>
+      <li>Sana uygun seviyede içerik ve kişiselleştirilmiş bir öğrenme deneyimi sunmak için.</li>
+      <li>İlerlemeni, kelime dağarcığını ve öğrenme serini takip edebilmen için.</li>
+      <li>Kelime çevirisi, telaffuz ve anlam açıklaması gibi özellikleri sağlamak için (bu sırada ilgili kelime/cümle, işlenmek üzere yapay zeka servis sağlayıcılarına iletilir).</li>
+      <li>Uygulamayı geliştirmek, hataları tespit edip düzeltmek için.</li>
+      <li>Destek taleplerine yanıt vermek için.</li>
+    </ul>
+    <p>Verilerini hiçbir zaman reklam amacıyla üçüncü taraflara satmıyoruz.</p>
+  </section>
+
+  <section id="paylasim">
+    <h2><span class="num">03</span> Kimlerle Paylaşıyoruz</h2>
+    <p>Uygulamanın çalışması için aşağıdaki hizmet sağlayıcılarla sınırlı ve gerekli ölçüde veri paylaşıyoruz:</p>
+    <div class="service-list">
+      <div class="service-item">
+        <strong>Supabase</strong>
+        <span>Hesap bilgilerin, kaydettiğin kelimeler ve ilerleme verilerin için veritabanı, kimlik doğrulama ve depolama altyapısı.</span>
+      </div>
+      <div class="service-item">
+        <strong>RevenueCat</strong>
+        <span>Abonelik durumunu yönetmek ve doğrulamak için.</span>
+      </div>
+      <div class="service-item">
+        <strong>Apple App Store / Google Play</strong>
+        <span>Ödeme işlemlerini güvenli şekilde gerçekleştirmek için — ödeme bilgilerin bize ulaşmaz.</span>
+      </div>
+      <div class="service-item">
+        <strong>Google Gemini, Groq</strong>
+        <span>Kelime çevirisi ve dil işleme özelliklerini sağlayan yapay zeka servisleri — yalnızca ilgili kelime/cümle metni iletilir.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="saklama">
+    <h2><span class="num">04</span> Veri Saklama Süresi</h2>
+    <p>
+      Verilerini, hesabın aktif olduğu sürece saklarız. Hesabını uygulama içinden
+      sildiğinde, ilişkili verilerin makul bir süre içinde sistemlerimizden kalıcı
+      olarak silinir.
+    </p>
+  </section>
+
+  <section id="haklar">
+    <h2><span class="num">05</span> Hakların</h2>
+    <p>6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) ve ilgili mevzuat kapsamında şu haklara sahipsin:</p>
+    <ul>
+      <li>Hangi verilerinin işlendiğini öğrenme ve erişim talep etme.</li>
+      <li>Yanlış veya eksik verilerin düzeltilmesini isteme.</li>
+      <li>Verilerinin silinmesini talep etme — bunu Profil ekranından, hesabını doğrudan silerek de yapabilirsin.</li>
+      <li>Verilerinin taşınabilir bir formatta sağlanmasını isteme.</li>
+    </ul>
+    <p>Bu haklarını kullanmak için aşağıdaki e-posta adresinden bize ulaşabilirsin.</p>
+  </section>
+
+  <section id="cocuklar">
+    <h2><span class="num">06</span> Çocukların Gizliliği</h2>
+    <p>
+      StoryUp, 13 yaşın altındaki çocuklardan bilerek kişisel veri toplamaz.
+      13 yaşın altında olduğunu düşünüyorsan lütfen uygulamayı bir ebeveyn/vasi
+      gözetiminde kullan.
+    </p>
+  </section>
+
+  <section id="guvenlik">
+    <h2><span class="num">07</span> Güvenlik</h2>
+    <p>
+      Verilerini korumak için sektör standardı şifreleme ve erişim kontrolleri
+      kullanıyoruz. Ancak hiçbir dijital sistem %100 güvenli olduğunu garanti
+      edemez; makul özeni gösteriyoruz ama mutlak bir güvence veremeyiz.
+    </p>
+  </section>
+
+  <section id="degisiklikler">
+    <h2><span class="num">08</span> Politika Değişiklikleri</h2>
+    <p>
+      Bu politikayı zaman zaman güncelleyebiliriz. Önemli değişikliklerde bu
+      sayfadaki "son güncelleme" tarihini yeniler ve gerekirse uygulama içinden
+      seni bilgilendiririz.
+    </p>
+  </section>
+
+  <section id="iletisim">
+    <h2><span class="num">09</span> İletişim</h2>
+    <p>
+      Gizlilikle ilgili sorularının için bize
+      <a class="email" href="mailto:destek@storyupapp.com">destek@storyupapp.com</a>
+      adresinden ulaşabilirsin.
+    </p>
+    <div class="note">
+      Bu belge genel bir bilgilendirme metnidir ve hukuki danışmanlık yerine geçmez.
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 StoryUp · <a href="terms.html">Kullanım Koşulları</a> · <a href="mailto:destek@storyupapp.com">destek@storyupapp.com</a></p>
+</footer>
+
+</body>
+</html>
