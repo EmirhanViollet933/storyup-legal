@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hesap ve Veri Silme — StoryUp</title>
+<style>
+  :root {
+    --ink: #16181D;
+    --ink-muted: #6B7280;
+    --ink-faint: #9CA3AF;
+    --indigo: #6366F1;
+    --indigo-tint: #EEF0FE;
+    --border: #E7E5E4;
+    --bg: #FFFFFF;
+    --surface: #FAFAF9;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 28px 24px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .brand svg { flex-shrink: 0; }
+  .brand span {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+  }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+  }
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--indigo);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 12px;
+  }
+  h1 {
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: -0.6px;
+    margin: 0 0 8px;
+  }
+  .updated {
+    color: var(--ink-muted);
+    font-size: 14px;
+    margin: 0 0 40px;
+  }
+  .intro {
+    font-size: 16px;
+    color: var(--ink-muted);
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+  }
+  section {
+    margin-bottom: 40px;
+    scroll-margin-top: 24px;
+  }
+  section h2 {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin: 0 0 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  section h2 .num {
+    color: var(--indigo);
+    font-variant-numeric: tabular-nums;
+    font-size: 15px;
+    font-weight: 700;
+  }
+  section p, section li {
+    font-size: 15.5px;
+    color: #33363D;
+  }
+  section ul { padding-left: 20px; margin: 12px 0; }
+  section li { margin-bottom: 8px; }
+  .note {
+    background: var(--indigo-tint);
+    border-radius: 10px;
+    padding: 16px 18px;
+    font-size: 14.5px;
+    color: #3A3D8F;
+  }
+  a.email { color: var(--indigo); font-weight: 600; text-decoration: none; }
+  a.cta {
+    display: inline-block;
+    background: var(--indigo);
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    margin-top: 8px;
+  }
+  a.cta:hover { opacity: 0.9; }
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 24px 48px;
+    text-align: center;
+  }
+  footer p { font-size: 13px; color: var(--ink-faint); margin: 0; }
+  footer a { color: var(--ink-muted); text-decoration: none; margin: 0 8px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 12H5L7 5L10 19L13 9L15 16L17 12H22" stroke="#6366F1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span>StoryUp</span>
+  </div>
+</header>
+
+<main>
+  <p class="eyebrow">Yasal</p>
+  <h1>Hesap ve Veri Silme</h1>
+  <p class="updated">Son güncelleme: 22 Ağustos 2026</p>
+
+  <p class="intro">
+    StoryUp, kullanıcılarına hesaplarını ve tüm ilişkili verilerini kalıcı
+    olarak silme imkânı sunar. Bu sayfada uygulama içi silme adımlarını ve
+    uygulamaya erişimin olmadığı durumlar için alternatif talep yöntemini
+    bulabilirsin.
+  </p>
+
+  <section id="uygulama-ici">
+    <h2><span class="num">01</span> Uygulama İçinden Hesap Silme</h2>
+    <p>
+      StoryUp uygulamasında hesabını doğrudan ve anında silebilirsin.
+      Aşağıdaki adımları takip et:
+    </p>
+    <ul>
+      <li><strong>Profil</strong> sekmesine git.</li>
+      <li>Profil bilgilerinin yanındaki düzenle ikonuna dokun.</li>
+      <li><strong>"Hesabı Sil"</strong> seçeneğini seç.</li>
+      <li>Güvenlik için parolanı tekrar gir.</li>
+      <li><strong>"Hesabımı Kalıcı Olarak Sil"</strong> butonuna bas.</li>
+    </ul>
+    <p>
+      Bu işlem geri alınamaz. Hesabın ve tüm verilerin anında kalıcı olarak
+      silinir.
+    </p>
+  </section>
+
+  <section id="silinen-veriler">
+    <h2><span class="num">02</span> Silinen Veriler</h2>
+    <p>Hesabını sildiğinde aşağıdaki veriler kalıcı olarak kaldırılır:</p>
+    <ul>
+      <li><strong>Profil bilgilerin:</strong> e-posta adresi, görünen ad ve tercihler.</li>
+      <li><strong>Kaydettiğin kelimeler:</strong> tüm kelime listesi ve SRS tekrar verileri.</li>
+      <li><strong>Pratik ve ilerleme verilerin:</strong> izlenen hikâyeler, pratik oturumları, günlük seri (streak) bilgisi.</li>
+      <li><strong>Favorilerin:</strong> favoriye eklediğin hikâyeler.</li>
+      <li><strong>Yapay zekâ kullanım kayıtların:</strong> kelime çevirisi ve anlam sorgulama geçmişi.</li>
+      <li><strong>Kimlik doğrulama kaydın:</strong> Supabase auth kullanıcı kaydı ve tüm aktif oturumlar.</li>
+    </ul>
+    <div class="note">
+      Abonelik iptali Apple App Store veya Google Play tarafından yönetilir.
+      Hesabını silmeden önce aktif aboneliğini cihazının Ayarlar &gt;
+      Abonelikler bölümünden iptal etmeni öneririz.
+    </div>
+  </section>
+
+  <section id="uygulama-disi">
+    <h2><span class="num">03</span> Uygulamaya Erişimin Yoksa</h2>
+    <p>
+      Uygulamayı yükleyemiyor veya açamıyorsan, aşağıdaki e-posta adresine
+      hesap silme talebinde bulunabilirsin. Mesajında <strong>hesabına kayıtlı
+      e-posta adresini</strong> belirtmeyi unutma.
+    </p>
+    <!-- TODO: storyupapp.com domain alınınca bu adresi güncelle -->
+    <a class="cta" href="mailto:emirhan78900@gmail.com?subject=Hesap%20Silme%20Talebi">
+      Hesap Silme Talebi Gönder
+    </a>
+    <p style="margin-top: 16px;">
+      veya doğrudan
+      <a class="email" href="mailto:emirhan78900@gmail.com">emirhan78900@gmail.com</a>
+      adresine yazabilirsin.
+    </p>
+  </section>
+
+  <section id="islem-suresi">
+    <h2><span class="num">04</span> İşlem Süresi</h2>
+    <p>
+      E-posta ile iletilen silme talepleri en geç <strong>30 gün</strong>
+      içinde işleme alınır. İşlem tamamlandığında seni bilgilendireceğiz.
+    </p>
+    <div class="note">
+      Uygulama içinden yapılan silme işlemleri anında gerçekleşir; bekleme
+      süresi yalnızca e-posta ile yapılan talepler için geçerlidir.
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <!-- TODO: storyupapp.com domain alınınca bu adresi güncelle -->
+  <p>© 2026 StoryUp · <a href="privacy.html">Gizlilik Politikası</a> · <a href="terms.html">Kullanım Koşulları</a> · <a href="mailto:emirhan78900@gmail.com">emirhan78900@gmail.com</a></p>
+</footer>
+
+</body>
+</html>

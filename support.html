@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Destek — StoryUp</title>
+<style>
+  :root {
+    --ink: #16181D;
+    --ink-muted: #6B7280;
+    --ink-faint: #9CA3AF;
+    --indigo: #6366F1;
+    --indigo-tint: #EEF0FE;
+    --border: #E7E5E4;
+    --bg: #FFFFFF;
+    --surface: #FAFAF9;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 28px 24px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .brand svg { flex-shrink: 0; }
+  .brand span {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+  }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+  }
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--indigo);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 12px;
+  }
+  h1 {
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: -0.6px;
+    margin: 0 0 8px;
+  }
+  .updated {
+    color: var(--ink-muted);
+    font-size: 14px;
+    margin: 0 0 40px;
+  }
+  .intro {
+    font-size: 16px;
+    color: var(--ink-muted);
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+  }
+  section {
+    margin-bottom: 40px;
+    scroll-margin-top: 24px;
+  }
+  section h2 {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin: 0 0 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  section h2 .num {
+    color: var(--indigo);
+    font-variant-numeric: tabular-nums;
+    font-size: 15px;
+    font-weight: 700;
+  }
+  section p, section li {
+    font-size: 15.5px;
+    color: #33363D;
+  }
+  section ul { padding-left: 20px; margin: 12px 0; }
+  section li { margin-bottom: 8px; }
+  .note {
+    background: var(--indigo-tint);
+    border-radius: 10px;
+    padding: 16px 18px;
+    font-size: 14.5px;
+    color: #3A3D8F;
+  }
+  a.email { color: var(--indigo); font-weight: 600; text-decoration: none; }
+  a.cta {
+    display: inline-block;
+    background: var(--indigo);
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    margin-top: 8px;
+  }
+  a.cta:hover { opacity: 0.9; }
+  .faq-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+  }
+  .faq-item strong {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 6px;
+    color: var(--ink);
+  }
+  .faq-item p {
+    font-size: 14.5px;
+    color: var(--ink-muted);
+    margin: 0;
+    line-height: 1.6;
+  }
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 24px 48px;
+    text-align: center;
+  }
+  footer p { font-size: 13px; color: var(--ink-faint); margin: 0; }
+  footer a { color: var(--ink-muted); text-decoration: none; margin: 0 8px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 12H5L7 5L10 19L13 9L15 16L17 12H22" stroke="#6366F1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span>StoryUp</span>
+  </div>
+</header>
+
+<main>
+  <p class="eyebrow">Destek</p>
+  <h1>Destek</h1>
+  <p class="updated">Son güncelleme: 22 Ağustos 2026</p>
+
+  <p class="intro">
+    StoryUp hakkında bir sorun mu yaşıyorsun, bir özellik mi öneriyorsun
+    veya sadece bir soru mu sormak istiyorsun? Sana yardımcı olmaktan
+    memnuniyet duyarız.
+  </p>
+
+  <section id="iletisim">
+    <h2><span class="num">01</span> Bize Ulaş</h2>
+    <p>
+      Aşağıdaki e-posta adresinden bize yazabilirsin. Mümkün olan en kısa
+      sürede yanıt vereceğiz.
+    </p>
+    <!-- TODO: storyupapp.com domain alınınca bu adresi güncelle -->
+    <a class="cta" href="mailto:emirhan78900@gmail.com?subject=StoryUp%20Destek">
+      E-posta Gönder
+    </a>
+    <p style="margin-top: 16px;">
+      <a class="email" href="mailto:emirhan78900@gmail.com">emirhan78900@gmail.com</a>
+    </p>
+  </section>
+
+  <section id="sss">
+    <h2><span class="num">02</span> Sık Sorulan Sorular</h2>
+
+    <div class="faq-item">
+      <strong>StoryUp nedir?</strong>
+      <p>İngilizceyi yapay zekâ seslendirmeli hikâye videolarıyla öğrenmenin keyifli yolu. Video izlerken bilmediğin kelimeye dokunup anlamını görürsün, kaydettiğin kelimeler aralıklı tekrarla karşına çıkar.</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>Premium ne işe yarar?</strong>
+      <p>Premium ile tüm hikâyelere sınırsız erişim, daha fazla pratik aktivitesi ve sınırsız kelime kaydetme imkânı sunulur. İstediğin zaman iptal edebilirsin.</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>Sesli okuma veya video çalışmıyor, ne yapmalıyım?</strong>
+      <p>Önce internet bağlantını kontrol et. Cihazının sesi açık olduğundan emin ol. Sorun devam ediyorsa uygulamayı kapatıp tekrar açmayı dene. Yine de çözülmezse bize ulaş.</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>Hesabımı nasıl silerim?</strong>
+      <p>Profil sekmesinde "Hesabı Sil" seçeneğini bul. Güvenlik için parolan tekrar istenecek. Hesap silindikten sonra tüm verilerin kalıcı olarak kaldırılır.</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>Aboneliğimi nasıl iptal ederim?</strong>
+      <p>Aboneliğini istediğin zaman iptal edebilirsin. iOS'ta: Ayarlar → Apple ID → Abonelikler. Android'de: Google Play → Profil → Abonelikler. İptal ettikten sonra mevcut dönem sonuna kadar premium özelliklerden yararlanmaya devam edersin.</p>
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  <!-- TODO: storyupapp.com domain alınınca bu adresi güncelle -->
+  <p>© 2026 StoryUp · <a href="privacy.html">Gizlilik Politikası</a> · <a href="terms.html">Kullanım Koşulları</a> · <a href="mailto:emirhan78900@gmail.com">emirhan78900@gmail.com</a></p>
+</footer>
+
+</body>
+</html>
