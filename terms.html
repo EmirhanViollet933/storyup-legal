@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kullanım Koşulları — StoryUp</title>
+<title>Kullanım Koşulları / Terms of Service — StoryUp</title>
 <style>
   :root {
     --ink: #16181D;
@@ -26,20 +26,49 @@
   }
   header {
     border-bottom: 1px solid var(--border);
-    padding: 28px 24px;
+    padding: 20px 24px;
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 720px;
+    margin: 0 auto;
   }
   .brand {
     display: flex;
     align-items: center;
     gap: 8px;
-    max-width: 720px;
-    margin: 0 auto;
   }
   .brand svg { flex-shrink: 0; }
   .brand span {
     font-size: 20px;
     font-weight: 800;
     letter-spacing: -0.3px;
+  }
+  .lang-toggle {
+    display: flex;
+    gap: 4px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 3px;
+  }
+  .lang-toggle button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-muted);
+    padding: 5px 12px;
+    border-radius: 6px;
+    transition: background 0.15s, color 0.15s;
+  }
+  .lang-toggle button.active {
+    background: var(--indigo);
+    color: #fff;
   }
   main {
     max-width: 720px;
@@ -93,6 +122,9 @@
     columns: 2;
     column-gap: 24px;
   }
+  @media (max-width: 480px) {
+    nav.toc ol { columns: 1; }
+  }
   nav.toc li { margin-bottom: 8px; break-inside: avoid; }
   nav.toc a {
     color: var(--ink);
@@ -125,7 +157,7 @@
     font-size: 15.5px;
     color: #33363D;
   }
-  section ul { padding-left: 20px; margin: 12px 0; }
+  section ul, section ol { padding-left: 20px; margin: 12px 0; }
   section li { margin-bottom: 8px; }
   .note {
     background: var(--indigo-tint);
@@ -133,7 +165,34 @@
     padding: 16px 18px;
     font-size: 14.5px;
     color: #3A3D8F;
+    margin-top: 16px;
   }
+  .warn {
+    background: #FFF7ED;
+    border: 1px solid #FED7AA;
+    border-radius: 10px;
+    padding: 16px 18px;
+    font-size: 14.5px;
+    color: #9A3412;
+    margin-top: 16px;
+  }
+  .platform-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 16px 0;
+  }
+  @media (max-width: 480px) {
+    .platform-cards { grid-template-columns: 1fr; }
+  }
+  .platform-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .platform-card strong { display: block; font-size: 14.5px; margin-bottom: 4px; }
+  .platform-card span { font-size: 14px; color: var(--ink-muted); }
   a.email { color: var(--indigo); font-weight: 600; text-decoration: none; }
   footer {
     border-top: 1px solid var(--border);
@@ -142,149 +201,624 @@
   }
   footer p { font-size: 13px; color: var(--ink-faint); margin: 0; }
   footer a { color: var(--ink-muted); text-decoration: none; margin: 0 8px; }
+
+  /* Language visibility */
+  .lang-tr, .lang-en { transition: opacity 0.2s; }
+  body.show-en .lang-tr { display: none; }
+  body.show-tr .lang-en { display: none; }
 </style>
 </head>
-<body>
+<body class="show-tr">
 
 <header>
-  <div class="brand">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M2 12H5L7 5L10 19L13 9L15 16L17 12H22" stroke="#6366F1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <span>StoryUp</span>
+  <div class="header-inner">
+    <div class="brand">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 12H5L7 5L10 19L13 9L15 16L17 12H22" stroke="#6366F1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>StoryUp</span>
+    </div>
+    <div class="lang-toggle" role="group" aria-label="Language / Dil">
+      <button id="btn-tr" class="active" onclick="setLang('tr')" aria-pressed="true">TR</button>
+      <button id="btn-en" onclick="setLang('en')" aria-pressed="false">EN</button>
+    </div>
   </div>
 </header>
 
-<main>
+<!-- ═══════════════════════════════════════════
+     TÜRKÇE
+════════════════════════════════════════════ -->
+<main class="lang-tr">
   <p class="eyebrow">Yasal</p>
   <h1>Kullanım Koşulları</h1>
-  <p class="updated">Son güncelleme: 7 Temmuz 2026</p>
+  <p class="updated">Son güncelleme: 23 Kasım 2026</p>
 
   <p class="intro">
-    StoryUp'ı kullanarak aşağıdaki koşulları kabul etmiş olursun. Lütfen
-    aboneliğinle ilgili bölümü (3. madde) dikkatlice oku.
+    StoryUp'ı indirerek veya kullanarak aşağıdaki koşulları okuduğunu ve
+    kabul ettiğini beyan etmiş olursun. Özellikle abonelik ve ödeme koşullarını
+    (3. madde) dikkatlice incelemeni öneririz.
   </p>
 
   <nav class="toc" aria-label="İçindekiler">
     <p>İçindekiler</p>
     <ol>
-      <li><a href="#hizmet">Hizmetin Tanımı</a></li>
-      <li><a href="#hesap">Hesabın ve Sorumlulukların</a></li>
-      <li><a href="#abonelik">Abonelik ve Ödeme</a></li>
-      <li><a href="#kullanim">Kabul Edilebilir Kullanım</a></li>
-      <li><a href="#fikri-mulkiyet">Fikri Mülkiyet</a></li>
-      <li><a href="#fesih">Fesih</a></li>
-      <li><a href="#sorumluluk">Sorumluluk Sınırı</a></li>
-      <li><a href="#hukuk">Uygulanacak Hukuk</a></li>
-      <li><a href="#degisiklikler">Değişiklikler</a></li>
-      <li><a href="#iletisim">İletişim</a></li>
+      <li><a href="#tr-hizmet">Hizmetin Tanımı</a></li>
+      <li><a href="#tr-hesap">Hesap Oluşturma ve Silme</a></li>
+      <li><a href="#tr-abonelik">Abonelik ve Ödeme</a></li>
+      <li><a href="#tr-iptal">İptal ve İade</a></li>
+      <li><a href="#tr-kullanim">Kabul Edilebilir Kullanım</a></li>
+      <li><a href="#tr-fikrimulkiyet">Fikri Mülkiyet ve İçerik</a></li>
+      <li><a href="#tr-fesih">Fesih</a></li>
+      <li><a href="#tr-sorumluluk">Sorumluluk Sınırı</a></li>
+      <li><a href="#tr-hukuk">Uygulanacak Hukuk</a></li>
+      <li><a href="#tr-degisiklikler">Değişiklikler</a></li>
+      <li><a href="#tr-iletisim">İletişim</a></li>
     </ol>
   </nav>
 
-  <section id="hizmet">
+  <section id="tr-hizmet">
     <h2><span class="num">01</span> Hizmetin Tanımı</h2>
     <p>
-      StoryUp, sesli anlatılan görsel hikâyeler ve akıllı tekrar (SRS) sistemiyle
-      İngilizce öğrenmeni sağlayan bir mobil uygulamadır. Bazı içerik ve özellikler
-      ücretsiz, bazıları Premium abonelik gerektirir.
+      StoryUp, sesli anlatımlı görsel hikâyeler ve aralıklı tekrar (SRS) sistemiyle
+      İngilizce öğrenmeni sağlayan bir mobil uygulamadır. Uygulama iOS ve Android
+      platformlarında sunulmaktadır.
+    </p>
+    <ul>
+      <li><strong>Ücretsiz katman:</strong> Sınırlı sayıda hikâye ve temel özellikler.</li>
+      <li><strong>Premium katman:</strong> Tüm hikâyelere sınırsız erişim, gelişmiş pratik aktiviteleri ve sınırsız kelime kaydetme.</li>
+    </ul>
+    <p>
+      StoryUp, öğrenme sonuçlarını garanti etmez. Uygulamanın içerikleri İngilizce
+      öğrenimi için eğitim amaçlıdır ve resmi bir dil belgesi ya da sertifika yerine
+      geçmez.
     </p>
   </section>
 
-  <section id="hesap">
-    <h2><span class="num">02</span> Hesabın ve Sorumlulukların</h2>
+  <section id="tr-hesap">
+    <h2><span class="num">02</span> Hesap Oluşturma ve Silme</h2>
+    <p><strong>Hesap oluştururken:</strong></p>
     <ul>
-      <li>Hesap oluştururken verdiğin bilgilerin doğru olduğunu kabul edersin.</li>
+      <li>E-posta/şifre ile kayıt olabilir ya da Apple veya Google hesabınla tek tıkla giriş yapabilirsin.</li>
+      <li>Verdiğin bilgilerin doğru ve güncel olmasından sen sorumlusun.</li>
+      <li>StoryUp'ı kullanmak için 13 yaşından büyük olman gerekir.</li>
       <li>Hesap bilgilerinin gizliliğinden ve hesabın altında gerçekleşen tüm etkinlikten sen sorumlusun.</li>
-      <li>Hesabını istediğin zaman Profil ekranından silebilirsin.</li>
     </ul>
-  </section>
-
-  <section id="abonelik">
-    <h2><span class="num">03</span> Abonelik ve Ödeme</h2>
+    <p><strong>Hesap silerken:</strong></p>
     <ul>
-      <li>Premium abonelik, satın alma sırasında ekranda gösterilen fiyat ve süreyle (aylık/3 aylık) faturalandırılır.</li>
-      <li>Sunulan bir ücretsiz deneme süresi varsa, koşulları satın alma ekranında açıkça belirtilir; deneme süresi bitiminde iptal etmediğin sürece ücretlendirme otomatik başlar.</li>
-      <li>Abonelikler, iptal etmediğin sürece dönem sonunda otomatik olarak yenilenir.</li>
-      <li>Ödemeler Apple App Store veya Google Play üzerinden işlenir; ödeme bilgilerin StoryUp'a ulaşmaz.</li>
-      <li>Aboneliğini iptal etmek için cihazının Ayarlar &gt; Abonelikler bölümünü kullanmalısın — mevcut faturalandırma dönemi sonuna kadar erişimin devam eder.</li>
-      <li>İadeler Apple/Google'ın kendi iade politikalarına tabidir; StoryUp doğrudan iade işlemi gerçekleştiremez.</li>
+      <li>Hesabını istediğin zaman Profil ekranından silebilirsin.</li>
+      <li>Silme işlemi geri alınamaz; tüm ilerleme, kayıtlı kelimeler ve kişisel veriler kalıcı olarak kaldırılır.</li>
+      <li>Aktif bir aboneliğin varsa, hesap silinmeden önce bunu Apple/Google üzerinden iptal etmeni öneririz — aksi hâlde abonelik faturalandırılmaya devam edebilir.</li>
     </ul>
+    <div class="note">
+      Uygulamaya erişimin yoksa hesap silme talebini
+      <a class="email" href="mailto:support.storyup@gmail.com?subject=Hesap%20Silme%20Talebi">support.storyup@gmail.com</a>
+      adresine e-posta göndererek iletebilirsin. Ayrıntılar için
+      <a class="email" href="delete-account.html">Hesap ve Veri Silme sayfasına</a> bakabilirsin.
+    </div>
   </section>
 
-  <section id="kullanim">
-    <h2><span class="num">04</span> Kabul Edilebilir Kullanım</h2>
+  <section id="tr-abonelik">
+    <h2><span class="num">03</span> Abonelik ve Ödeme</h2>
+    <p>
+      StoryUp Premium, dönemsel abonelik modeliyle sunulmaktadır.
+      Mevcut planlar ve fiyatlar, satın alma sırasında uygulama içi ekranda
+      gösterilir.
+    </p>
+    <ul>
+      <li>
+        <strong>Mevcut planlar:</strong> Aylık ve 3 Aylık olmak üzere iki plan sunulmaktadır.
+        Her planın fiyatı, satın alma ekranında yerel para birimin cinsinden görüntülenir.
+        Vergi uygulanabilir.
+      </li>
+      <li>
+        <strong>Faturalandırma:</strong> Ödeme, satın alma işlemi tamamlandığında
+        Apple ID veya Google Play hesabından tahsil edilir.
+      </li>
+      <li>
+        <strong>Otomatik yenileme:</strong> Abonelikler, dönem sona ermeden en az
+        24 saat önce iptal edilmediği takdirde otomatik olarak yenilenir ve aynı
+        ücret yenileme döneminde hesabından tahsil edilir. Yenileme tutarı,
+        dönem başlangıcında Apple ID veya Google Play üzerinden tahsil edilir.
+      </li>
+      <li>
+        <strong>Ücretsiz deneme:</strong> Ücretsiz deneme süresi, yalnızca satın alma ekranında açıkça deneme hakkı içerdiği belirtilen uygun abonelik planları ve uygunluğu bulunan kullanıcılar için geçerlidir. Sunulan deneme süresi ve koşulları satın alma ekranında açıkça gösterilir (örneğin uygun 3 Aylık abonelik teklifleri için 3 günlük ücretsiz deneme). Deneme hakkı bulunmayan veya bu hakka uygun olmayan plan ve kullanıcılar için ücretlendirme satın alma onayıyla derhal başlar. Ücretsiz deneme süresi sona ermeden en az 24 saat önce iptal edilmediği takdirde, ücretli abonelik otomatik olarak başlar ve ilgili dönem ücreti tahsil edilir.
+      </li>
+      <li>
+        <strong>Satın alma geri yükleme:</strong> Daha önce satın aldığın bir
+        aboneliği farklı bir cihazda veya yeniden yükledikten sonra
+        etkinleştirmek için Ayarlar ekranındaki "Satın Almaları Geri Yükle"
+        seçeneğini kullanabilirsin.
+      </li>
+      <li>
+        <strong>Ödeme gizliliği:</strong> Ödeme bilgilerin (kart numarası vb.)
+        yalnızca Apple/Google tarafından işlenir; StoryUp bu bilgilere erişemez
+        ve saklamaz.
+      </li>
+    </ul>
+    <div class="platform-cards">
+      <div class="platform-card">
+        <strong>iOS — Apple App Store</strong>
+        <span>Abonelikler Apple ID üzerinden yönetilir. Yenileme, dönem sonundan 24 saat önce gerçekleşir.</span>
+      </div>
+      <div class="platform-card">
+        <strong>Android — Google Play</strong>
+        <span>Abonelikler Google Play hesabı üzerinden yönetilir. Yenileme koşulları Play Store tarafından belirlenir.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="tr-iptal">
+    <h2><span class="num">04</span> İptal ve İade</h2>
+    <p><strong>İptal:</strong></p>
+    <ul>
+      <li>
+        <strong>iOS:</strong> Ayarlar → [Apple ID adın] → Abonelikler →
+        StoryUp → Aboneliği İptal Et.
+      </li>
+      <li>
+        <strong>Android:</strong> Google Play Mağazası → Profil simgesi →
+        Ödemeler ve abonelikler → Abonelikler → StoryUp → İptal et.
+      </li>
+      <li>
+        İptal ettiğinde, mevcut faturalandırma döneminin sonuna kadar Premium
+        özelliklerinden yararlanmaya devam edersin; dönem bitiminde otomatik
+        yenileme durur.
+      </li>
+    </ul>
+    <p><strong>İade:</strong></p>
+    <ul>
+      <li>
+        İadeler, ödemenin yapıldığı platform (Apple veya Google) tarafından
+        kendi politikaları çerçevesinde değerlendirilir.
+      </li>
+      <li>
+        <strong>Apple:</strong> <a class="email" href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a> adresinden iade talebinde bulunabilirsin.
+      </li>
+      <li>
+        <strong>Google:</strong> Google Play iade politikasına göre satın almadan
+        sonraki 48 saat içinde otomatik iade istenebilir; sonrasında Google Play
+        destek ekibine başvurulması gerekir.
+      </li>
+      <li>
+        StoryUp doğrudan iade işlemi yapamaz; iade kararı tamamen Apple veya
+        Google'a aittir.
+      </li>
+    </ul>
+    <div class="warn">
+      Aboneliğini iptal etmek hesabını silmez. Hesabını silmek de aboneliğini
+      iptal etmez. Bu iki işlem birbirinden bağımsızdır.
+    </div>
+  </section>
+
+  <section id="tr-kullanim">
+    <h2><span class="num">05</span> Kabul Edilebilir Kullanım</h2>
     <p>StoryUp'ı kullanırken şunları yapmamayı kabul edersin:</p>
     <ul>
-      <li>Uygulamayı tersine mühendislikle çözmeye veya kaynak koduna müdahale etmeye çalışmak.</li>
-      <li>İçeriği izinsiz kopyalamak, dağıtmak veya ticari amaçla yeniden satmak.</li>
-      <li>Uygulamanın normal işleyişini bozacak şekilde otomatik araçlar (bot vb.) kullanmak.</li>
+      <li>Uygulamayı tersine mühendislikle çözmeye, kaynak koduna müdahale etmeye veya yetkisiz erişim sağlamaya çalışmak.</li>
+      <li>Uygulama içindeki hikâye, ses, görsel veya yazılı içerikleri izinsiz kopyalamak, dağıtmak, yeniden satmak veya türev eserler oluşturmak.</li>
+      <li>Uygulamanın normal işleyişini bozacak şekilde otomatik araçlar (bot, scraper vb.) kullanmak.</li>
+      <li>Başka kullanıcıları ya da üçüncü tarafları yanıltıcı, taciz edici veya zararlı içeriklerle hedef almak.</li>
+      <li>Yasaları ya da üçüncü taraf haklarını ihlal eden herhangi bir eylem.</li>
     </ul>
   </section>
 
-  <section id="fikri-mulkiyet">
-    <h2><span class="num">05</span> Fikri Mülkiyet</h2>
+  <section id="tr-fikrimulkiyet">
+    <h2><span class="num">06</span> Fikri Mülkiyet ve İçerik</h2>
     <p>
-      Uygulamadaki tüm hikâyeler, sesler, görseller ve yazılım StoryUp'a aittir
-      veya StoryUp tarafından lisanslanmıştır. Sana yalnızca kişisel, ticari
-      olmayan kullanım için sınırlı bir lisans verilir.
+      Uygulamadaki tüm hikâyeler, sesler, görseller, animasyonlar, metinler ve
+      yazılım StoryUp'a aittir veya StoryUp tarafından lisanslanmıştır.
+    </p>
+    <ul>
+      <li>
+        <strong>Verilen lisans:</strong> Sana, bu koşullara uygun şekilde, kişisel
+        ve ticari olmayan kullanım için sınırlı, devredilemez, münhasır olmayan
+        bir lisans verilir.
+      </li>
+      <li>
+        <strong>Sınırlar:</strong> İçerikleri indirmek, kaydetmek, çoğaltmak,
+        yeniden yayımlamak, ticari amaçla kullanmak ya da başkasına devretmek
+        yasaktır.
+      </li>
+      <li>
+        <strong>Yapay zekâ seslendirme:</strong> Hikâyelerdeki sesler yapay zekâ
+        teknolojisiyle üretilmiştir. İçerikler eğitim amacı taşır; gerçek kişilere
+        ait ses kayıtları değildir.
+      </li>
+      <li>
+        <strong>Kullanıcı içeriği:</strong> StoryUp şu anda kullanıcıların içerik
+        yüklemesine olanak tanıyan bir özellik sunmamaktadır.
+      </li>
+    </ul>
+  </section>
+
+  <section id="tr-fesih">
+    <h2><span class="num">07</span> Fesih</h2>
+    <p>
+      Bu koşulları ihlal etmen durumunda, önceden bildirimde bulunmaksızın
+      hesabına erişimini askıya alabilir veya kalıcı olarak sonlandırabiliriz.
+    </p>
+    <p>
+      Hesabını istediğin zaman Profil ekranından kapatabilirsin. Fesih
+      durumunda, yürürlükteki faturalandırma dönemine ait abonelik ücreti
+      iade edilmez.
     </p>
   </section>
 
-  <section id="fesih">
-    <h2><span class="num">06</span> Fesih</h2>
+  <section id="tr-sorumluluk">
+    <h2><span class="num">08</span> Sorumluluk Sınırı</h2>
     <p>
-      Bu koşulları ihlal etmen durumunda hesabına erişimini askıya alabilir
-      veya sonlandırabiliriz. Hesabını istediğin zaman kendin de kapatabilirsin.
+      StoryUp "olduğu gibi" (as-is) ve "mevcut hâliyle" (as-available) sunulur.
+      Aşağıdaki hususları kabul edersin:
     </p>
-  </section>
-
-  <section id="sorumluluk">
-    <h2><span class="num">07</span> Sorumluluk Sınırı</h2>
+    <ul>
+      <li>Öğrenme sonuçlarının kişiden kişiye değişebileceğini ve belirli bir ilerlemeyi garanti etmediğimizi.</li>
+      <li>Hizmetin kesintisiz, hatasız veya güvenli olacağını garanti edemeyeceğimizi.</li>
+      <li>Yasaların izin verdiği azami ölçüde, doğrudan olmayan, arızi, özel, cezai veya dolaylı zararlardan sorumlu tutulamayacağımızı.</li>
+      <li>Tüketicilerin emredici yasal hakları saklı kalmak kaydıyla ve yürürlükteki mevzuatın izin verdiği ölçüde, StoryUp'ın sözleşmeden veya haksız fiilden doğabilecek toplam sorumluluğunun, iddiaya konu olayın gerçekleştiği tarihten önceki son 12 ayda kullanıcı tarafından ödenmiş olan fiili abonelik tutarıyla sınırlı olacağını.</li>
+    </ul>
     <p>
-      StoryUp "olduğu gibi" sunulur. Öğrenme sonuçlarının kişiden kişiye
-      değişebileceğini, kesintisiz veya hatasız bir hizmet garanti edemeyeceğimizi
-      kabul edersin. Yasaların izin verdiği azami ölçüde, dolaylı zararlardan
-      sorumlu tutulamayız.
-    </p>
-  </section>
-
-  <section id="hukuk">
-    <h2><span class="num">08</span> Uygulanacak Hukuk</h2>
-    <p>
-      Bu koşullar Türkiye Cumhuriyeti kanunlarına tabidir. Doğabilecek
-      uyuşmazlıklarda İstanbul (Türkiye) mahkemeleri ve icra daireleri yetkilidir.
-    </p>
-  </section>
-
-  <section id="degisiklikler">
-    <h2><span class="num">09</span> Değişiklikler</h2>
-    <p>
-      Bu koşulları zaman zaman güncelleyebiliriz. Önemli değişikliklerde bu
-      sayfadaki tarihi yeniler, gerekirse uygulama içinden bilgilendiririz.
-      Güncelleme sonrası uygulamayı kullanmaya devam etmen, yeni koşulları
-      kabul ettiğin anlamına gelir.
-    </p>
-  </section>
-
-  <section id="iletisim">
-    <h2><span class="num">10</span> İletişim</h2>
-    <p>
-      Sorularının için bize
-      <!-- TODO: storyupapp.com domain alınınca bu adresi güncelle -->
-      <a class="email" href="mailto:support.storyup@gmail.com">support.storyup@gmail.com</a>
-      adresinden ulaşabilirsin.
+      Bu koşullardaki hiçbir hüküm, 6502 sayılı Tüketicinin Korunması Hakkında Kanun ve ilgili emredici tüketici mevzuatı uyarınca tüketicilerin sahip olduğu yasal hak ve güvenceleri kısıtlayamaz veya bertaraf edemez.
     </p>
     <div class="note">
       Bu belge genel bir bilgilendirme metnidir ve hukuki danışmanlık yerine geçmez.
     </div>
   </section>
 
+  <section id="tr-hukuk">
+    <h2><span class="num">09</span> Uygulanacak Hukuk</h2>
+    <p>
+      Bu koşullar Türkiye Cumhuriyeti kanunlarına tabidir. Doğabilecek
+      uyuşmazlıklarda İstanbul (Türkiye) mahkemeleri ve icra daireleri yetkilidir.
+      Bununla birlikte, tüketici sıfatına sahip kullanıcıların ikametgâhlarının bulunduğu
+      yerdeki yetkili Tüketici Hakem Heyetleri veya Tüketici Mahkemelerine başvurma ve
+      yerel emredici tüketici hukuku kurallarından yararlanma hakları saklıdır.
+    </p>
+  </section>
+
+  <section id="tr-degisiklikler">
+    <h2><span class="num">10</span> Değişiklikler</h2>
+    <p>
+      Bu koşulları zaman zaman güncelleyebiliriz. Önemli değişikliklerde bu
+      sayfadaki "son güncelleme" tarihini yeniler ve gerekirse uygulama içinden
+      seni bilgilendiririz. Güncelleme sonrası uygulamayı kullanmaya devam etmen,
+      yeni koşulları kabul ettiğin anlamına gelir.
+    </p>
+  </section>
+
+  <section id="tr-iletisim">
+    <h2><span class="num">11</span> İletişim</h2>
+    <p>
+      Bu koşullarla ilgili sorularının için bize
+      <a class="email" href="mailto:support.storyup@gmail.com">support.storyup@gmail.com</a>
+      adresinden ulaşabilirsin.
+    </p>
+    <p>Diğer yasal belgeler:</p>
+    <ul>
+      <li><a class="email" href="privacy.html">Gizlilik Politikası</a></li>
+      <li><a class="email" href="delete-account.html">Hesap ve Veri Silme</a></li>
+      <li><a class="email" href="support.html">Destek</a></li>
+    </ul>
+  </section>
+</main>
+
+
+<!-- ═══════════════════════════════════════════
+     ENGLISH
+════════════════════════════════════════════ -->
+<main class="lang-en" hidden>
+  <p class="eyebrow">Legal</p>
+  <h1>Terms of Service</h1>
+  <p class="updated">Last updated: November 23, 2026</p>
+
+  <p class="intro">
+    By downloading or using StoryUp you agree to be bound by these Terms of Service.
+    Please read Section 3 (Subscriptions &amp; Billing) and Section 4 (Cancellation &amp; Refunds) carefully.
+  </p>
+
+  <nav class="toc" aria-label="Table of Contents">
+    <p>Contents</p>
+    <ol>
+      <li><a href="#en-service">About StoryUp</a></li>
+      <li><a href="#en-account">Account Creation &amp; Deletion</a></li>
+      <li><a href="#en-subscription">Subscriptions &amp; Billing</a></li>
+      <li><a href="#en-cancellation">Cancellation &amp; Refunds</a></li>
+      <li><a href="#en-conduct">Acceptable Use</a></li>
+      <li><a href="#en-ip">Intellectual Property &amp; Content</a></li>
+      <li><a href="#en-termination">Termination</a></li>
+      <li><a href="#en-liability">Limitation of Liability</a></li>
+      <li><a href="#en-law">Governing Law</a></li>
+      <li><a href="#en-changes">Changes to These Terms</a></li>
+      <li><a href="#en-contact">Contact</a></li>
+    </ol>
+  </nav>
+
+  <section id="en-service">
+    <h2><span class="num">01</span> About StoryUp</h2>
+    <p>
+      StoryUp is a mobile application that helps you learn English through
+      AI-narrated story videos and a spaced-repetition (SRS) vocabulary system.
+      The app is available on iOS and Android.
+    </p>
+    <ul>
+      <li><strong>Free tier:</strong> Access to a limited number of stories and basic features.</li>
+      <li><strong>Premium tier:</strong> Unlimited access to all stories, advanced practice activities, and unlimited vocabulary saving.</li>
+    </ul>
+    <p>
+      StoryUp does not guarantee specific learning outcomes. The app's content is
+      intended for educational purposes only and does not constitute an official
+      language certificate or qualification.
+    </p>
+  </section>
+
+  <section id="en-account">
+    <h2><span class="num">02</span> Account Creation &amp; Deletion</h2>
+    <p><strong>Creating an account:</strong></p>
+    <ul>
+      <li>You may register with an email address and password, or sign in with Apple or Google.</li>
+      <li>You are responsible for ensuring the information you provide is accurate and up to date.</li>
+      <li>You must be at least 13 years old to use StoryUp.</li>
+      <li>You are responsible for maintaining the confidentiality of your account credentials and for all activity that occurs under your account.</li>
+    </ul>
+    <p><strong>Deleting your account:</strong></p>
+    <ul>
+      <li>You may delete your account at any time from the Profile screen in the app.</li>
+      <li>Deletion is permanent and irreversible. All progress, saved vocabulary, and personal data are erased.</li>
+      <li>If you have an active subscription, we strongly recommend cancelling it via Apple/Google before deleting your account to avoid continued billing.</li>
+    </ul>
+    <div class="note">
+      If you cannot access the app, you may request account deletion by emailing
+      <a class="email" href="mailto:support.storyup@gmail.com?subject=Account%20Deletion%20Request">support.storyup@gmail.com</a>.
+      See the <a class="email" href="delete-account.html">Account &amp; Data Deletion page</a> for details.
+    </div>
+  </section>
+
+  <section id="en-subscription">
+    <h2><span class="num">03</span> Subscriptions &amp; Billing</h2>
+    <p>
+      StoryUp Premium is offered as a recurring subscription. Available plans and
+      current pricing are displayed in-app at the time of purchase.
+    </p>
+    <ul>
+      <li>
+        <strong>Available plans:</strong> StoryUp currently offers a Monthly plan
+        and a 3-Month plan. The price of each plan is displayed in your local
+        currency on the purchase screen. Prices may include applicable taxes.
+      </li>
+      <li>
+        <strong>Billing:</strong> Payment is charged to your Apple ID or Google
+        Play account upon confirmation of purchase.
+      </li>
+      <li>
+        <strong>Automatic renewal:</strong> Subscriptions automatically renew at
+        the end of each billing period unless cancelled at least 24 hours before
+        the renewal date. The renewal charge is the same as the original
+        subscription price and is billed to your Apple ID or Google Play account
+        at the start of each renewal period.
+      </li>
+      <li>
+        <strong>Free trial:</strong> Free trial periods apply only to eligible subscription plans explicitly indicated with a trial on the in-app purchase screen and to eligible users. The trial terms and duration are presented on the purchase screen prior to purchase (for example, a 3-day free trial on eligible 3-Month subscription offers). For plans or users where no trial is offered, billing begins immediately upon purchase confirmation. Unless cancelled at least 24 hours before the end of the trial period, your paid subscription will start automatically and the periodic subscription fee will be charged.
+      </li>
+      <li>
+        <strong>Restore purchases:</strong> If you reinstall the app or switch
+        devices, you can restore a previously purchased subscription using
+        the "Restore Purchases" option in the Settings screen.
+      </li>
+      <li>
+        <strong>Payment privacy:</strong> All payments are processed by Apple or
+        Google. StoryUp never receives or stores your payment card details.
+      </li>
+    </ul>
+    <div class="platform-cards">
+      <div class="platform-card">
+        <strong>iOS — Apple App Store</strong>
+        <span>Subscriptions are managed through your Apple ID. Renewal occurs 24 hours before the current period ends.</span>
+      </div>
+      <div class="platform-card">
+        <strong>Android — Google Play</strong>
+        <span>Subscriptions are managed through your Google Play account under the terms set by Google Play.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="en-cancellation">
+    <h2><span class="num">04</span> Cancellation &amp; Refunds</h2>
+    <p><strong>How to cancel:</strong></p>
+    <ul>
+      <li>
+        <strong>iOS:</strong> Settings → [Your Apple ID] → Subscriptions →
+        StoryUp → Cancel Subscription.
+      </li>
+      <li>
+        <strong>Android:</strong> Google Play Store → Profile icon →
+        Payments &amp; subscriptions → Subscriptions → StoryUp → Cancel.
+      </li>
+      <li>
+        After cancellation, you retain access to Premium features until the
+        end of the current billing period. No future charges will occur.
+      </li>
+    </ul>
+    <p><strong>Refunds:</strong></p>
+    <ul>
+      <li>
+        Refunds are governed by the policies of the platform through which you
+        purchased (Apple or Google). StoryUp cannot issue refunds directly.
+      </li>
+      <li>
+        <strong>Apple:</strong> Request a refund at <a class="email" href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>.
+      </li>
+      <li>
+        <strong>Google:</strong> You may request an automatic refund within 48 hours
+        of purchase through Google Play. After that period, contact Google Play
+        support directly.
+      </li>
+    </ul>
+    <div class="warn">
+      Cancelling your subscription does not delete your account, and deleting your
+      account does not cancel your subscription. These are two separate actions.
+    </div>
+  </section>
+
+  <section id="en-conduct">
+    <h2><span class="num">05</span> Acceptable Use</h2>
+    <p>By using StoryUp, you agree <strong>not</strong> to:</p>
+    <ul>
+      <li>Reverse-engineer, decompile, disassemble, or attempt to derive the source code of the app.</li>
+      <li>Copy, reproduce, distribute, republish, or create derivative works of any story, audio, image, or other content without prior written permission.</li>
+      <li>Use automated tools (bots, scrapers, crawlers) in a way that disrupts or degrades the service.</li>
+      <li>Use the app for any commercial purpose or resell access to the service.</li>
+      <li>Violate any applicable law or infringe the rights of third parties.</li>
+    </ul>
+  </section>
+
+  <section id="en-ip">
+    <h2><span class="num">06</span> Intellectual Property &amp; Content</h2>
+    <p>
+      All stories, audio, visuals, animations, text, and software within StoryUp
+      are owned by or licensed to StoryUp.
+    </p>
+    <ul>
+      <li>
+        <strong>License grant:</strong> Subject to these Terms, StoryUp grants you
+        a limited, non-exclusive, non-transferable, revocable licence to access and
+        use the app for personal, non-commercial purposes.
+      </li>
+      <li>
+        <strong>Restrictions:</strong> You may not download, capture, reproduce,
+        redistribute, or commercially exploit any content from the app.
+      </li>
+      <li>
+        <strong>AI-generated narration:</strong> Story audio is generated using
+        AI text-to-speech technology. It does not represent recordings of real
+        individuals.
+      </li>
+      <li>
+        <strong>User-generated content:</strong> StoryUp does not currently allow
+        users to upload or publish content.
+      </li>
+    </ul>
+  </section>
+
+  <section id="en-termination">
+    <h2><span class="num">07</span> Termination</h2>
+    <p>
+      We reserve the right to suspend or permanently terminate your account,
+      without prior notice, if you violate these Terms or if we reasonably
+      believe your conduct poses a risk to other users or to the service.
+    </p>
+    <p>
+      You may close your account at any time from the Profile screen. Upon
+      termination, any subscription fees paid for the current billing period
+      will not be refunded.
+    </p>
+  </section>
+
+  <section id="en-liability">
+    <h2><span class="num">08</span> Limitation of Liability</h2>
+    <p>
+      StoryUp is provided "as is" and "as available". You acknowledge:
+    </p>
+    <ul>
+      <li>Learning outcomes vary by individual; we make no guarantees of specific results.</li>
+      <li>We do not warrant that the service will be uninterrupted, error-free, or secure at all times.</li>
+      <li>To the maximum extent permitted by applicable law, StoryUp shall not be liable for any indirect, incidental, special, punitive, or consequential damages.</li>
+      <li>Subject to mandatory statutory consumer rights and to the fullest extent permitted by applicable law, our total liability arising out of or related to these Terms or the service shall be limited to the total subscription fees actually paid by you in the twelve (12) months preceding the event giving rise to liability.</li>
+    </ul>
+    <p>
+      Nothing in these Terms excludes, restricts, or modifies any mandatory statutory consumer rights, guarantees, or remedies that cannot be limited or excluded under applicable consumer protection legislation.
+    </p>
+    <div class="note">
+      This document is provided for general informational purposes and does not
+      constitute legal advice.
+    </div>
+  </section>
+
+  <section id="en-law">
+    <h2><span class="num">09</span> Governing Law</h2>
+    <p>
+      These Terms are governed by and construed in accordance with the laws of
+      the Republic of Türkiye. Any disputes arising out of or relating to these
+      Terms shall be subject to the jurisdiction of the courts and
+      enforcement offices of Istanbul, Türkiye. However, nothing in these Terms
+      deprives consumer users of the protection afforded by mandatory provisions
+      of the law of their country of habitual residence or prevents them from
+      bringing proceedings before their local competent consumer dispute bodies
+      or consumer courts.
+    </p>
+  </section>
+
+  <section id="en-changes">
+    <h2><span class="num">10</span> Changes to These Terms</h2>
+    <p>
+      We may update these Terms from time to time. When we make material changes,
+      we will update the "Last updated" date at the top of this page and, where
+      appropriate, notify you in-app. Your continued use of StoryUp after any
+      changes constitutes acceptance of the revised Terms.
+    </p>
+  </section>
+
+  <section id="en-contact">
+    <h2><span class="num">11</span> Contact</h2>
+    <p>
+      For questions about these Terms, please contact us at
+      <a class="email" href="mailto:support.storyup@gmail.com">support.storyup@gmail.com</a>.
+    </p>
+    <p>Other legal documents:</p>
+    <ul>
+      <li><a class="email" href="privacy.html">Privacy Policy</a></li>
+      <li><a class="email" href="delete-account.html">Account &amp; Data Deletion</a></li>
+      <li><a class="email" href="support.html">Support</a></li>
+    </ul>
+  </section>
 </main>
 
 <footer>
   <!-- TODO: storyupapp.com domain alınınca bu adresi güncelle -->
-  <p>© 2026 StoryUp · <a href="privacy.html">Gizlilik Politikası</a> · <a href="mailto:support.storyup@gmail.com">support.storyup@gmail.com</a></p>
+  <p>© 2026 StoryUp · <a href="privacy.html">Gizlilik / Privacy</a> · <a href="delete-account.html">Hesap Silme / Delete Account</a> · <a href="mailto:support.storyup@gmail.com">support.storyup@gmail.com</a></p>
 </footer>
+
+<script>
+  function setLang(lang) {
+    const body = document.body;
+    const btnTr = document.getElementById('btn-tr');
+    const btnEn = document.getElementById('btn-en');
+    const mainTr = document.querySelector('main.lang-tr');
+    const mainEn = document.querySelector('main.lang-en');
+
+    if (lang === 'en') {
+      body.className = 'show-en';
+      btnTr.classList.remove('active');
+      btnEn.classList.add('active');
+      btnTr.setAttribute('aria-pressed', 'false');
+      btnEn.setAttribute('aria-pressed', 'true');
+      mainTr.hidden = true;
+      mainEn.hidden = false;
+      document.documentElement.lang = 'en';
+      document.title = 'Terms of Service — StoryUp';
+    } else {
+      body.className = 'show-tr';
+      btnEn.classList.remove('active');
+      btnTr.classList.add('active');
+      btnEn.setAttribute('aria-pressed', 'false');
+      btnTr.setAttribute('aria-pressed', 'true');
+      mainEn.hidden = true;
+      mainTr.hidden = false;
+      document.documentElement.lang = 'tr';
+      document.title = 'Kullanım Koşulları — StoryUp';
+    }
+
+    // Persist preference
+    try { localStorage.setItem('storyup-lang', lang); } catch(e) {}
+  }
+
+  // Restore saved preference or use browser language
+  (function() {
+    var saved;
+    try { saved = localStorage.getItem('storyup-lang'); } catch(e) {}
+    var lang = saved || (navigator.language || '').toLowerCase().startsWith('tr') ? 'tr' : 'en';
+    if (!saved) lang = (navigator.language || '').toLowerCase().startsWith('tr') ? 'tr' : 'en';
+    if (lang !== 'tr') setLang('en');
+  })();
+</script>
 
 </body>
 </html>
